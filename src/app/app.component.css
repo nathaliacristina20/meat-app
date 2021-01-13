@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  color: #fff;
+}
+
+footer {
+  background: #fff;
+  padding: 15px;
+  color: #444;
+  border-top: 1px solid #d2d6de;
+  display: flex;
+}
+
