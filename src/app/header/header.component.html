@@ -3,7 +3,7 @@
     class="navbar navbar-expand-lg navbar-dark mb-5"
     style="background-color: #dd4b39"
   >
-    <a class="navbar-brand font-weight-bold" href="#">Meat</a>
+    <a class="navbar-brand font-weight-bold" [routerLink]="['/']">Meat</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -17,13 +17,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Restaurantes <span class="sr-only">(current)</span></a
-          >
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" [routerLink]="['/restaurants']">Restaurantes</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sobre</a>
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" [routerLink]="['/about']">Sobre</a>
         </li>
       </ul>
     </div>
