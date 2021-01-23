@@ -1,0 +1,46 @@
+<div class="box box-solid">
+  <div class="box-header">
+    <em class="fa fa-shopping-cart"></em>
+
+    <h3 class="box-title">Carrinho</h3>
+  </div>
+  <div class="box-body">
+    <div *ngIf="!items().length">
+      <p class="text-center">Seu carrinho está vazio!</p>
+    </div>
+    <div class="table-responsive" *ngIf="items().length">
+      <table
+        class="table"
+        aria-describedat="tabela de carrinho"
+        aria-describedby="nathalia"
+      >
+        <tbody>
+          <tr *ngFor="let item of items()">
+            <th scope="produto">{{ item.menuItem.name }}</th>
+            <td class="text-right">
+              {{ item.menuItem.price | currency: "BRL":true }}/td>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="total">Total:</th>
+            <td class="text-right">{{ total() | currency: "BRL":true }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="box-footer" *ngIf="items().length">
+    <div class="pull-right">
+      <button type="button" class="btn btn-danger">
+        <em class="fa fa-trash"></em> Limpar
+      </button>
+      <a href="order.html" class="btn btn-success">
+        <em class="fa fa-credit-card"></em>
+        Fechar Pedido
+      </a>
+    </div>
+  </div>
+
+</div>
