@@ -11,14 +11,21 @@
     <div class="table-responsive" *ngIf="items().length">
       <table
         class="table"
-        aria-describedat="tabela de carrinho"
-        aria-describedby="nathalia"
+        aria-describedat="Carrinho de produtos"
+        aria-describedby="Meat App"
       >
         <tbody>
           <tr *ngFor="let item of items()">
-            <th scope="produto">{{ item.menuItem.name }}</th>
+            <th scope="produto">
+              ({{ item.quantity }}x) {{ item.menuItem.name }}
+            </th>
             <td class="text-right">
-              {{ item.menuItem.price | currency: "BRL":true }}/td>
+              {{ item.menuItem.price | currency: "BRL":true }}
+            </td>
+            <td class="text-right">
+              <a class="btn btn-sm danger" (click)="removeItem(item)">
+                <em class="fa fa-remove"></em>
+              </a>
             </td>
           </tr>
 
@@ -33,7 +40,7 @@
 
   <div class="box-footer" *ngIf="items().length">
     <div class="pull-right">
-      <button type="button" class="btn btn-danger">
+      <button type="button" class="btn btn-danger" (click)="clear()">
         <em class="fa fa-trash"></em> Limpar
       </button>
       <a href="order.html" class="btn btn-success">
@@ -42,5 +49,4 @@
       </a>
     </div>
   </div>
-
 </div>

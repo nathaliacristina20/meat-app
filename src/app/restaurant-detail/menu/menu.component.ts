@@ -22,7 +22,4 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  addMenuItem(menuItem: MenuItem){
-    console.log(`adicionar`, menuItem);
-  }
 }

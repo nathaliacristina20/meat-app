@@ -1,18 +1,18 @@
+import { MenuItem } from './../menu-item/menu-item.model';
 import { ShoppingCartService } from './shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
+import { CartItem } from './shopping-cart.model';
 
 @Component({
   selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html'
+  templateUrl: './shopping-cart.component.html',
 })
 export class ShoppingCartComponent implements OnInit {
+  constructor(private shoppingCartService: ShoppingCartService) {}
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  items(){
+  items() {
     return this.shoppingCartService.items;
   }
 
@@ -20,4 +20,15 @@ export class ShoppingCartComponent implements OnInit {
     return this.shoppingCartService.total();
   }
 
+  clear() {
+    this.shoppingCartService.clear();
+  }
+
+  removeItem(item: CartItem) {
+    this.shoppingCartService.removeItem(item);
+  }
+
+  addItem(item: MenuItem) {
+    this.shoppingCartService.addItem(item);
+  }
 }
