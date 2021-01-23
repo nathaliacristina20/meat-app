@@ -1,3 +1,4 @@
+import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
 import { Review } from './../restaurant-detail/reviews/review.model';
 import { ErrorHandler } from './../error-handler';
 import { Observable } from 'rxjs';
@@ -25,6 +26,12 @@ export class RestaurantsService {
   reviewsOfRestaurant(id: string): Observable<Review[]>  {
     return this.http
       .get<Review[]>(`http://localhost:3000/restaurants/${id}/reviews`)
+      .pipe(catchError(ErrorHandler.handleError));
+  }
+
+  menuOfRestaurant(id: string): Observable<MenuItem[]>  {
+    return this.http
+      .get<MenuItem[]>(`http://localhost:3000/restaurants/${id}/menu`)
       .pipe(catchError(ErrorHandler.handleError));
   }
 }
