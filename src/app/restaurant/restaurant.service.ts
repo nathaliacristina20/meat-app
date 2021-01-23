@@ -22,9 +22,9 @@ export class RestaurantsService {
       .pipe(catchError(ErrorHandler.handleError));
   }
 
-  reviewsOfRestaurant(id: string): Observable<Review>  {
+  reviewsOfRestaurant(id: string): Observable<Review[]>  {
     return this.http
-      .get<Review>(`http://localhost:3000/restaurants/${id}/reviews`)
+      .get<Review[]>(`http://localhost:3000/restaurants/${id}/reviews`)
       .pipe(catchError(ErrorHandler.handleError));
   }
 }
