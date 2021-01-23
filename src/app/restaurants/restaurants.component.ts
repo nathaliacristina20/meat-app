@@ -8,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurants.component.css'],
 })
 export class RestaurantsComponent implements OnInit {
+
+  public loading = true;
   public restaurants: Restaurant[] = [];
 
   constructor(private restaurantService: RestaurantsService) {}
 
   ngOnInit(): void {
-    this.restaurantService
-      .getAll()
-      .subscribe((response) => (this.restaurants = response));
+    this.restaurantService.getAll().subscribe(
+      (response) => {
+        this.restaurants = response;
+        this.loading = false;
+      },
+      () => (this.loading = false)
+    );
   }
 }

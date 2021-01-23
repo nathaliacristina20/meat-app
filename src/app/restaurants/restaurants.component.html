@@ -2,7 +2,9 @@
   <h1>Todos os restaurantes</h1>
 </section>
 
-<section class="content">
+<div *ngIf="loading">Carregando</div>
+
+<section class="content" *ngIf="!loading">
   <div class="row">
     <div class="col-sm-6 col-xs-12" *ngFor="let restaurant of restaurants">
       <app-restaurant [restaurant]="restaurant"></app-restaurant>
