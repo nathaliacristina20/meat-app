@@ -1,27 +1,13 @@
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Restaurant } from './restaurant.model';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class RestaurantsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  restaurants: Restaurant[] = [
-    {
-      category: 'Burguer house',
-      deliveryEstimate: '25m',
-      id: '1',
-      imagePath: '../../assets/img/restaurants/tasty.png',
-      name: 'Hamburguer',
-      rating: 4,
-    },
-    {
-      category: 'Burguer house',
-      deliveryEstimate: '25m',
-      id: '1',
-      imagePath: '../../assets/img/restaurants/tasty.png',
-      name: 'Hamburguer',
-      rating: 4,
-    },
-  ];
-
-  getAll(): Restaurant[] {
-    return this.restaurants;
+  getAll(): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(`http://localhost:3000/restaurants`);
   }
 }
