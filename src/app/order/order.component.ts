@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class OrderComponent implements OnInit {
   constructor() {}
 
+  // emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   ngOnInit(): void {}
   finishOrder() {
     console.log('finalizar pedido');
