@@ -20,6 +20,7 @@ import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.compo
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
+import { InputComponent } from './shared/input/input.component';
 
 registerLocaleData(localePt);
 
@@ -37,6 +38,7 @@ registerLocaleData(localePt);
     MenuItemComponent,
     ReviewsComponent,
     OrderComponent,
+    InputComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
