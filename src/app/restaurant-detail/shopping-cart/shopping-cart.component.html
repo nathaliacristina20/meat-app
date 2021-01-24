@@ -20,7 +20,7 @@
               ({{ item.quantity }}x) {{ item.menuItem.name }}
             </th>
             <td class="text-right">
-              {{ item.menuItem.price | currency: "BRL":true }}
+              {{ item.menuItem.price | currency: "BRL":"symbol" }}
             </td>
             <td class="text-right">
               <a class="btn btn-sm danger" (click)="removeItem(item)">
@@ -31,7 +31,7 @@
 
           <tr>
             <th scope="total">Total:</th>
-            <td class="text-right">{{ total() | currency: "BRL":true }}</td>
+            <td class="text-right">{{ total() | currency: "BRL":"symbol" }}</td>
           </tr>
         </tbody>
       </table>

@@ -31,7 +31,7 @@
 
         <td>{{ item.menuItem.description }}</td>
         <td class="text-right">
-          {{ item.value() | currency: "BRL":true }}
+          {{ item.value() | currency: "BRL":"symbol" }}
         </td>
         <td class="text-right">
           <a class="btn btn-sm danger" (click)="emitRemove(item)">
