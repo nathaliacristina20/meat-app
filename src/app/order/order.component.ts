@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  constructor(private orderService: OrderService) {}
+  delivery = 8;
 
   paymentOptions: RadioOption[] = [
     {
@@ -25,11 +25,17 @@ export class OrderComponent implements OnInit {
       value: 'REF',
     },
   ];
+  constructor(private orderService: OrderService) {}
+
   // emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   ngOnInit(): void {}
 
-  cartItems(){
+  itemsValue(): number {
+    return this.orderService.itemsValue();
+  }
+
+  cartItems() {
     return this.orderService.cartItems();
   }
 

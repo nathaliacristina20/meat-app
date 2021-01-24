@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <table class="table" aria-describedby="Meat App">
+    <tbody>
+      <tr>
+        <th style="width: 50%" scope="itens">Itens:</th>
+        <td class="text-right">{{ itemsValue | currency: "BRL":"symbol" }}</td>
+      </tr>
+      <tr>
+        <th scope="valor do frete">Frete:</th>
+        <td class="text-right">{{ delivery | currency: "BRL":"symbol" }}</td>
+      </tr>
+      <tr>
+        <th scope="total do pedido">Total:</th>
+        <td class="text-right">{{ total() | currency: "BRL":"symbol" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

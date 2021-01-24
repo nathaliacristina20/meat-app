@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { OrderItensComponent } from './order/order-itens/order-itens.component';
+import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 
 registerLocaleData(localePt);
 
@@ -44,6 +45,7 @@ registerLocaleData(localePt);
     InputComponent,
     RadioComponent,
     OrderItensComponent,
+    DeliveryCostsComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
