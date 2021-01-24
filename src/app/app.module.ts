@@ -1,3 +1,4 @@
+import { OrderService } from './order/order.service';
 import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
 import { RestaurantsService } from './restaurant/restaurant.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
+import { OrderItensComponent } from './order/order-itens/order-itens.component';
 
 registerLocaleData(localePt);
 
@@ -41,11 +43,13 @@ registerLocaleData(localePt);
     OrderComponent,
     InputComponent,
     RadioComponent,
+    OrderItensComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
     RestaurantsService,
     ShoppingCartService,
+    OrderService,
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR',
