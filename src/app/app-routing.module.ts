@@ -1,3 +1,4 @@
+import { OrderComponent } from './order/order.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'reviews', component: ReviewsComponent },
     ],
   },
+  { path: 'order', component: OrderComponent },
 ];
 
 @NgModule({
