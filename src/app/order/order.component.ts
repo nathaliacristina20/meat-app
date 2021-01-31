@@ -2,6 +2,8 @@ import { OrderService } from './order.service';
 import { CartItem } from './../restaurant-detail/shopping-cart/shopping-cart.model';
 import { RadioOption } from './../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
+import { Order, OrderItem } from './order.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-order',
@@ -51,7 +53,19 @@ export class OrderComponent implements OnInit {
     this.orderService.remove(item);
   }
 
-  finishOrder() {
-    console.log('finalizar pedido');
+  finishOrder(order: Order) {
+    const cartItems = this.cartItems();
+
+    order.orderItems = cartItems.map(
+      (item: CartItem) => new OrderItem(item.quantity, item.menuItem.id)
+    );
+
+    this.orderService
+      .checkOrder(order)
+      .pipe(map((resp: Order) => resp.id))
+      .subscribe((orderId) => {
+        console.log(`pedido finalizado ${orderId}`);
+        this.orderService.clear();
+      });
   }
 }

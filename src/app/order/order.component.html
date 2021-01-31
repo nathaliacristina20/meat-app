@@ -54,7 +54,7 @@
             <input
               class="form-control"
               placeholder="Complemento"
-              name="optional"
+              name="optionalAddress"
               ngModel
               autocomplete="off"
             />
@@ -109,7 +109,7 @@
         <button
           class="btn btn-success pull-right"
           [disabled]="!form.valid || cartItems().length === 0"
-          (click)="finishOrder()"
+          (click)="finishOrder(form.value)"
         >
           <i class="fa fa-credit-card"></i> Concluir Pedido
         </button>
