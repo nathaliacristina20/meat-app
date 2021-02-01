@@ -9,7 +9,7 @@
 
 ## :rocket: Sobre o projeto
 
-<p>Esta é uma aplicação que simula as funcionalidades delivery online. Desenvolvido durante o curso *Construindo Aplicações Web Com o Novo Angular (4, 5 e 6)* refeito em Angular 11.</p>
+<p>Esta é uma aplicação que simula as funcionalidades delivery online. Desenvolvido durante o curso **Construindo Aplicações Web Com o Novo Angular (4, 5 e 6)** refeito em Angular 11.</p>
 
 ## :computer: Tecnologias
 
