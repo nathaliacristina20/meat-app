@@ -1,5 +1,4 @@
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { OrderComponent } from './order/order.component';
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -26,7 +25,11 @@ const routes: Routes = [
       { path: 'reviews', component: ReviewsComponent },
     ],
   },
-  { path: 'order', component: OrderComponent },
+  {
+    path: 'order',
+    loadChildren: () =>
+      import('./modules/order/order.module').then((m) => m.OrderModule),
+  },
   { path: 'order-summary', component: OrderSummaryComponent },
 ];
 

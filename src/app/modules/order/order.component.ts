@@ -1,6 +1,6 @@
 import { OrderService } from './order.service';
-import { CartItem } from './../restaurant-detail/shopping-cart/shopping-cart.model';
-import { RadioOption } from './../shared/radio/radio-option.model';
+import { CartItem } from '../../restaurant-detail/shopping-cart/shopping-cart.model';
+import { RadioOption } from '../../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';

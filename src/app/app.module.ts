@@ -1,5 +1,5 @@
 import { SharedModule } from './shared.module';
-import { OrderService } from './order/order.service';
+import { OrderService } from './modules/order/order.service';
 import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
 import { RestaurantsService } from './restaurant/restaurant.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,9 +19,6 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { OrderComponent } from './order/order.component';
-import { OrderItensComponent } from './order/order-itens/order-itens.component';
-import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 registerLocaleData(localePt);
@@ -38,9 +35,6 @@ registerLocaleData(localePt);
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderComponent,
-    OrderItensComponent,
-    DeliveryCostsComponent,
     OrderSummaryComponent,
   ],
   imports: [
