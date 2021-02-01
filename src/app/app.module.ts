@@ -1,5 +1,4 @@
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +17,7 @@ import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shoppin
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePt);
 
