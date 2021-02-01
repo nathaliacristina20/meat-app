@@ -1,27 +1,32 @@
-# MeatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+<h1 align="center">Meat App</h1>
 
-## Development server
+<p align="center">
+  <a href="#rocket-sobre-o-projeto">Sobre o projeto</a> | <a href="#computer-tecnologias">Tecnologias</a> | <a href="#books-guia-de-instalação-e-execução">Guia de instalação e execução</a> | <a href="#scroll-licença">Licença</a>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Preview
 
-## Code scaffolding
+## :rocket: Sobre o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p>Esta é uma aplicação que simula as funcionalidades delivery online. Desenvolvido durante o curso *Construindo Aplicações Web Com o Novo Angular (4, 5 e 6)* refeito em Angular 11.</p>
 
-## Build
+## :computer: Tecnologias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Angular
 
-## Running unit tests
+## :books: Guia de instalação e execução
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pré-requisitos
 
-## Running end-to-end tests
+- Npm
+- Git
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Como executar
 
-## Further help
+## :scroll: Licença
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Esse projeto está sob a licença MIT. Veja o arquivo <a href="https://github.com/nathaliacristina20/meat-app/blob/master/LICENSE">LICENSE</a> para mais detalhes.
+
+<hr />
+<p>by Nathalia Cristina :wave: <a href="https://linktr.ee/nathaliacristina20">Get in touch!</a></p>
