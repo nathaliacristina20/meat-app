@@ -1,5 +1,4 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,10 +38,10 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     //CoreModule,
     BrowserAnimationsModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(), // importa os modulos com providers, alternativa ao core module
+    AppRoutingModule,
   ],
   providers: [
     {
