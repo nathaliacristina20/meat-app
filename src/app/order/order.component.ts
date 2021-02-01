@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EMAIL_PATTERN, NUMBER_PATTERN } from '../shared/patterns';
 
 @Component({
   selector: 'app-order',
@@ -15,6 +16,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class OrderComponent implements OnInit {
   orderForm!: FormGroup;
   delivery = 8;
+
+  emailPattern = EMAIL_PATTERN;
+  numberPattern = NUMBER_PATTERN;
 
   paymentOptions: RadioOption[] = [
     {
@@ -38,13 +42,28 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderForm = this.formBuilder.group({
-      name: this.formBuilder.control(''),
-      email: this.formBuilder.control(''),
-      emailConfirmation: this.formBuilder.control(''),
-      address: this.formBuilder.control(''),
-      addressNumber: this.formBuilder.control(''),
+      name: this.formBuilder.control('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      email: this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern(this.emailPattern),
+      ]),
+      emailConfirmation: this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern(this.emailPattern),
+      ]),
+      address: this.formBuilder.control('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      addressNumber: this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern(this.numberPattern),
+      ]),
       optionalAddress: this.formBuilder.control(''),
-      paymentOption: this.formBuilder.control(''),
+      paymentOption: this.formBuilder.control('', [Validators.required]),
     });
   }
 
