@@ -1,9 +1,10 @@
+import { ShoppingCartService } from './shopping-cart.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CartItem } from '../../restaurant-detail/shopping-cart/shopping-cart.model';
-import { ShoppingCartService } from '../../restaurant-detail/shopping-cart/shopping-cart.service';
+
 import { Injectable } from '@angular/core';
-import { Order } from './order.model';
+import { Order } from 'src/app/modules/order/order.model';
+
 
 @Injectable()
 export class OrderService {

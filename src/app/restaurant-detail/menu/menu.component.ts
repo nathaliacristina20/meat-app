@@ -1,6 +1,7 @@
+import { RestaurantsService } from './../../shared/services/restaurant.service';
 import { Observable } from 'rxjs';
 import { MenuItem } from './../menu-item/menu-item.model';
-import { RestaurantsService } from './../../restaurant/restaurant.service';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -18,8 +19,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuItems = this.restaurantsService.menuOfRestaurant(
-      this.route.parent?.snapshot.params['id']
+      this.route.parent?.snapshot.params.id
     );
   }
-
 }
