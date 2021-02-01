@@ -1,7 +1,5 @@
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared.module';
-import { OrderService } from './modules/order/order.service';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
-import { RestaurantsService } from './restaurant/restaurant.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,12 +39,10 @@ registerLocaleData(localePt);
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule
   ],
   providers: [
-    RestaurantsService,
-    ShoppingCartService,
-    OrderService,
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR',
