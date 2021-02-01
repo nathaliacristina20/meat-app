@@ -5,7 +5,12 @@ import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { EMAIL_PATTERN, NUMBER_PATTERN } from '../shared/patterns';
 
 @Component({
@@ -40,31 +45,55 @@ export class OrderComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
+  static equalsTo(
+    group: AbstractControl
+  ): { [key: string]: boolean } | undefined {
+    const email = group.get('email');
+    const emailConfirmation = group.get('emailConfirmation');
+
+    if (!email || !emailConfirmation) {
+      return undefined;
+    }
+
+    if (email.value !== emailConfirmation.value) {
+      return {
+        emailsNotMatch: true,
+      };
+    }
+
+    return undefined;
+  }
+
   ngOnInit(): void {
-    this.orderForm = this.formBuilder.group({
-      name: this.formBuilder.control('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      email: this.formBuilder.control('', [
-        Validators.required,
-        Validators.pattern(this.emailPattern),
-      ]),
-      emailConfirmation: this.formBuilder.control('', [
-        Validators.required,
-        Validators.pattern(this.emailPattern),
-      ]),
-      address: this.formBuilder.control('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      addressNumber: this.formBuilder.control('', [
-        Validators.required,
-        Validators.pattern(this.numberPattern),
-      ]),
-      optionalAddress: this.formBuilder.control(''),
-      paymentOption: this.formBuilder.control('', [Validators.required]),
-    });
+    this.orderForm = this.formBuilder.group(
+      {
+        name: this.formBuilder.control('', [
+          Validators.required,
+          Validators.minLength(5),
+        ]),
+        email: this.formBuilder.control('', [
+          Validators.required,
+          Validators.pattern(this.emailPattern),
+        ]),
+        emailConfirmation: this.formBuilder.control('', [
+          Validators.required,
+          Validators.pattern(this.emailPattern),
+        ]),
+        address: this.formBuilder.control('', [
+          Validators.required,
+          Validators.minLength(5),
+        ]),
+        addressNumber: this.formBuilder.control('', [
+          Validators.required,
+          Validators.pattern(this.numberPattern),
+        ]),
+        optionalAddress: this.formBuilder.control(''),
+        paymentOption: this.formBuilder.control('', [Validators.required]),
+      },
+      {
+        validator: OrderComponent.equalsTo,
+      }
+    );
   }
 
   itemsValue(): number {
