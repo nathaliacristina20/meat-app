@@ -7,13 +7,12 @@
       Seu pedido foi recebido pelo restaurante. Prepare a mesa que a comida está
       chegando!
     </p>
-    <p><strong>Avalie</strong> sua experiência:</p>
     <p>
-      <em class="fa fa-star"></em>
-      <em class="fa fa-star"></em>
-      <em class="fa fa-star"></em>
-      <em class="fa fa-star"></em>
-      <em class="fa fa-star"></em>
+      <strong>Avalie</strong> sua experiência:
     </p>
+   <app-rating (rated)="rated = true"></app-rating>
+   <p [hidden]="!rated">
+    Obrigada pela sua avaliação!
+   </p>
   </div>
 </section>

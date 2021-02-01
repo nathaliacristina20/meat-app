@@ -30,8 +30,6 @@ export class OrderComponent implements OnInit {
   ];
   constructor(private orderService: OrderService, private router: Router) {}
 
-  // emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
   ngOnInit(): void {}
 
   itemsValue(): number {
