@@ -39,8 +39,8 @@ registerLocaleData(localePt);
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    CoreModule,
-    SharedModule
+    //CoreModule,
+    SharedModule.forRoot()
   ],
   providers: [
     {
