@@ -1,6 +1,6 @@
 import { OrderService } from './order.service';
-import { CartItem } from './../restaurant-detail/shopping-cart/shopping-cart.model';
-import { RadioOption } from './../shared/radio/radio-option.model';
+import { CartItem } from '../../restaurant-detail/shopping-cart/shopping-cart.model';
+import { RadioOption } from '../../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { EMAIL_PATTERN, NUMBER_PATTERN } from '../shared/patterns';
+import { EMAIL_PATTERN, NUMBER_PATTERN } from '../../shared/patterns';
 
 @Component({
   selector: 'app-order',
