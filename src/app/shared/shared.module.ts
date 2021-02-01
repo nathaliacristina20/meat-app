@@ -1,7 +1,8 @@
+import { OrderService } from './services/order.service';
+import { RestaurantsService } from './services/restaurant.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
 import { NotificationService } from './services/notification.service';
-import { OrderService } from './../modules/order/order.service';
-import { RestaurantsService } from './../restaurant/restaurant.service';
-import { ShoppingCartService } from './../restaurant-detail/shopping-cart/shopping-cart.service';
+
 import { RatingComponent } from './rating/rating.component';
 import { InputComponent } from './input/input.component';
 
@@ -33,7 +34,12 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [ShoppingCartService, RestaurantsService, OrderService, NotificationService],
+      providers: [
+        ShoppingCartService,
+        RestaurantsService,
+        OrderService,
+        NotificationService,
+      ],
     };
   }
 }

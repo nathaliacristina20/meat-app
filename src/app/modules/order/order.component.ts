@@ -1,4 +1,5 @@
-import { OrderService } from './order.service';
+import { OrderService } from './../../shared/services/order.service';
+
 import { CartItem } from '../../restaurant-detail/shopping-cart/shopping-cart.model';
 import { RadioOption } from '../../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';

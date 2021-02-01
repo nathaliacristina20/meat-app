@@ -1,11 +1,13 @@
-import { ErrorHandler } from './../shared/error-handler';
-import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
-import { Review } from './../restaurant-detail/reviews/review.model';
+import { Review } from './../../restaurant-detail/reviews/review.model';
+import { MenuItem } from './../../restaurant-detail/menu-item/menu-item.model';
+import { ErrorHandler } from './../error-handler';
+
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Restaurant } from './restaurant.model';
+
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
+import { Restaurant } from 'src/app/restaurant/restaurant.model';
 
 @Injectable()
 export class RestaurantsService {

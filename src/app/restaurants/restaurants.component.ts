@@ -1,4 +1,5 @@
-import { RestaurantsService } from './../restaurant/restaurant.service';
+import { RestaurantsService } from './../shared/services/restaurant.service';
+
 import { Restaurant } from './../restaurant/restaurant.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,10 +12,10 @@ export class RestaurantsComponent implements OnInit {
   public loading = true;
   public restaurants: Restaurant[] = [];
 
-  constructor(private restaurantService: RestaurantsService) {}
+  constructor(private restaurantsService: RestaurantsService) {}
 
   ngOnInit(): void {
-    this.restaurantService.getAll().subscribe(
+    this.restaurantsService.getAll().subscribe(
       (response) => {
         this.restaurants = response;
         this.loading = false;
