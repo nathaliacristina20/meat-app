@@ -4,6 +4,7 @@ import { RadioOption } from './../shared/radio/radio-option.model';
 import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -27,7 +28,7 @@ export class OrderComponent implements OnInit {
       value: 'REF',
     },
   ];
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private router: Router) {}
 
   // emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -63,8 +64,8 @@ export class OrderComponent implements OnInit {
     this.orderService
       .checkOrder(order)
       .pipe(map((resp: Order) => resp.id))
-      .subscribe((orderId) => {
-        console.log(`pedido finalizado ${orderId}`);
+      .subscribe((orderId: string) => {
+        this.router.navigate(['order-summary']);
         this.orderService.clear();
       });
   }
