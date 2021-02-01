@@ -1,12 +1,13 @@
-import { OrderService } from './modules/order/order.service';
-import { RestaurantsService } from './restaurant/restaurant.service';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
-import { RatingComponent } from './shared/rating/rating.component';
-import { InputComponent } from './shared/input/input.component';
+import { OrderService } from './../modules/order/order.service';
+import { RestaurantsService } from './../restaurant/restaurant.service';
+import { ShoppingCartService } from './../restaurant-detail/shopping-cart/shopping-cart.service';
+import { RatingComponent } from './rating/rating.component';
+import { InputComponent } from './input/input.component';
+
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RadioComponent } from './shared/radio/radio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RadioComponent } from './radio/radio.component';
 
 @NgModule({
   declarations: [InputComponent, RadioComponent, RatingComponent],
