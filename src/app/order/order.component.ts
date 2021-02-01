@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order, OrderItem } from './order.model';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
+  orderForm!: FormGroup;
   delivery = 8;
 
   paymentOptions: RadioOption[] = [
@@ -28,9 +30,23 @@ export class OrderComponent implements OnInit {
       value: 'REF',
     },
   ];
-  constructor(private orderService: OrderService, private router: Router) {}
+  constructor(
+    private orderService: OrderService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.orderForm = this.formBuilder.group({
+      name: this.formBuilder.control(''),
+      email: this.formBuilder.control(''),
+      emailConfirmation: this.formBuilder.control(''),
+      address: this.formBuilder.control(''),
+      addressNumber: this.formBuilder.control(''),
+      optionalAddress: this.formBuilder.control(''),
+      paymentOption: this.formBuilder.control(''),
+    });
+  }
 
   itemsValue(): number {
     return this.orderService.itemsValue();

@@ -5,39 +5,40 @@ import {
   OnInit,
   AfterContentInit,
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { FormControlName, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-input-container',
   templateUrl: './input.component.html',
 })
 export class InputComponent implements OnInit, AfterContentInit {
-  @Input() label: string = '';
-  @Input() errorMessage: string = '';
+
+  @Input() label = '';
+  @Input() errorMessage = '';
+  @ContentChild(NgModel) model!: NgModel;
+  @ContentChild(FormControlName) control!: FormControlName;
 
   input: any;
-
-  @ContentChild(NgModel) model!: NgModel;
 
   constructor() {}
 
   ngAfterContentInit(): void {
-    this.input = this.model;
+    this.input = this.model || this.control;
 
     if (this.input === undefined) {
       throw new Error(
-        'Esse componente precisa ser usado com uma diretiva ngModel'
+        'Esse componente precisa ser usado com uma diretiva ngModel ou form control name'
       );
     }
   }
 
   ngOnInit(): void {}
 
-  hasSuccess(){
+  hasSuccess() {
     return this.input.valid && (this.input.dirty || this.input.touched);
   }
 
-  hasError(){
+  hasError() {
     return this.input.invalid && (this.input.dirty || this.input.touched);
   }
 }

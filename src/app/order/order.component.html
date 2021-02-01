@@ -2,7 +2,7 @@
 
 <section class="content">
   <section class="invoice">
-    <form novalidate #form="ngForm">
+    <form novalidate [formGroup]="orderForm">
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -10,8 +10,54 @@
           </h2>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="lead">Seus dados:</p>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <app-input-container
+            errorMessage="Campo obrigatório e com 5 caracteres"
+            label="Nome"
+          >
+            <input
+              class="form-control"
+              name="name"
+              formControlName="name"
+              placeholder="Nome"
+              autocomplete="off"
+            />
+          </app-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <app-input-container errorMessage="E-mail inválido" label="E-mail">
+            <input
+              class="form-control"
+              name="email"
+              formControlName="email"
+              placeholder="E-mail"
+              autocomplete="off"
+              type="email"
+            />
+          </app-input-container>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <app-input-container
+            errorMessage="E-mail inválido"
+            label="Confirme seu e-mail"
+          >
+            <input
+              class="form-control"
+              name="emailConfirmation"
+              formControlName="emailConfirmation"
+              placeholder="Confime seu e-mail"
+              autocomplete="off"
+              type="email"
+            />
+          </app-input-container>
+        </div>
+      </div>
 
-      <div class="row invoice-info">
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead">Endereço de Entrega:</p>
         </div>
@@ -23,10 +69,8 @@
             <input
               class="form-control"
               name="address"
-              ngModel
+              formControlName="address"
               placeholder="Endereço"
-              required
-              minlength="5"
               autocomplete="off"
             />
           </app-input-container>
@@ -38,10 +82,9 @@
           >
             <input
               class="form-control"
-              name="number"
-              ngModel
+              name="addressNumber"
+              formControlName="addressNumber"
               placeholder="Número"
-              required
               autocomplete="off"
               pattern="^[0-9]*$"
             />
@@ -53,14 +96,13 @@
               class="form-control"
               placeholder="Complemento"
               name="optionalAddress"
-              ngModel
+              formControlName="optionalAddress"
               autocomplete="off"
             />
           </app-input-container>
         </div>
       </div>
 
-      <!-- Table row -->
       <div class="row">
         <div class="col-xs-12">
           <p class="lead">Itens do Pedido:</p>
@@ -73,32 +115,28 @@
           (remove)="remove($event)"
         ></app-order-itens>
       </div>
-      <!-- /.row -->
 
       <div class="row">
-        <!-- accepted payments column -->
+
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Formas de Pagamento:</p>
-
           <div class="form-group">
             <app-radio
               [options]="paymentOptions"
               name="paymentOption"
-              ngModel
+              formControlName="paymentOption"
               required
             ></app-radio>
           </div>
         </div>
-        <!-- /.col -->
+
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Frete e Total:</p>
-
           <app-delivery-costs
             [delivery]="delivery"
             [itemsValue]="itemsValue()"
           ></app-delivery-costs>
         </div>
-        <!-- /.col -->
       </div>
     </form>
 
@@ -106,10 +144,11 @@
       <div class="col-xs-12">
         <button
           class="btn btn-success pull-right"
-          [disabled]="!form.valid || cartItems().length === 0"
-          (click)="finishOrder(form.value)"
+          [disabled]="!orderForm.valid || cartItems().length === 0"
+          (click)="finishOrder(orderForm.value)"
         >
-          <i class="fa fa-credit-card"></i> Concluir Pedido
+          <em class="fa fa-credit-card"></em>
+          Concluir Pedido
         </button>
       </div>
     </div>
